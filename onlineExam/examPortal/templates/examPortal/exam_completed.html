@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Completed</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'examPortal/css/exam_completed.css' %}">
+   
+</head>
+<body>
+    <h1>Exam Completed</h1>
+    
+    <p>You have completed the {{ exam.subject.name }} exam.</p>
+<p>Your Score: {{ score }} / {{ total_questions }}</p>
+
+<p><strong>Exam Start Time:</strong> {{ start_time }}</p>
+{% if completion_time %}
+    <p><strong>Completion Time:</strong> {{ completion_time }}</p>
+{% else %}
+    <p><strong>Completion Time:</strong> Not yet completed</p>
+{% endif %}
+
+<h3>Answers</h3>
+<ul>
+    {% for item in questions_with_answers %}
+        <li>
+            <strong>Question:</strong> {{ item.question.text }}<br>
+            
+            {% if item.answer %}
+                <strong>Selected Option:</strong> {{ item.selected_option_text }}<br>
+            {% else %}
+                <strong>Selected Option:</strong> Not Answered<br>
+            {% endif %}
+
+            <strong>Correct Option:</strong> {{ item.correct_option_text }}
+        </li>
+    {% endfor %}
+</ul>
+
+    <a href="{% url 'selectSubj' %}">Take another exam</a>
+    <form action="{% url 'welcome' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="logout" value="logout" class="btn btn-primary">Sign Out</button>
+    </form>
+</body>
+</html>

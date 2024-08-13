@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Subject</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'examPortal/css/selectSubj.css' %}">
+   
+</head>
+<body>
+    <h1>Select a Subject for the Exam</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        <select name="subject">
+            {% for subject in subjects %}
+                <option value="{{ subject.id }}">{{ subject.name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" name="examType" value="mocktest">Start Mock Exam</button>
+        <button type="submit" name="examType" value="test">Start Exam</button>
+        
+        <form action="{% url 'welcome' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="logout" value="logout" class="btn btn-primary">Sign Out</button>
+        </form>
+    </form>
+    {% if messages %}
+    <div class="alert-messages">
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,138 @@
+/* examPortal/css/selectSubj.css */
+
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Sign Out Button */
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+/* Subject Dropdown */
+select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Exam Buttons */
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+button[type="submit"][value="test"] {
+    background-color: #17a2b8;
+}
+
+button[type="submit"][value="test"]:hover {
+    background-color: #138496;
+}
+
+/* Alert Messages */
+.alert-messages {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.alert {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn, button[type="submit"] {
+        width: 100%;
+        max-width: none;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    select {
+        max-width: none;
+        width: 100%;
+    }
+
+    .alert-messages {
+        max-width: none;
+        width: 100%;
+    }
+}

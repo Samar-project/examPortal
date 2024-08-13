@@ -1,0 +1,27 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Exam Results</title>
+</head>
+<body>
+    <h1>Debug Exam Results</h1>
+    
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <h2>Exam: {{ exam.subject.name }}</h2>
+        <p>Score: {{ score }} / {{ total_questions }}</p>
+        
+        <h3>Answers</h3>
+        <ul>
+            {% for answer in answers %}
+                <li>
+                    <strong>Question:</strong> {{ answer.question.text }}<br>
+                    <strong>Selected Option:</strong> {{ answer.selected_option }}<br>
+                    <strong>Correct Option:</strong> {{ answer.question.correct_option }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html> -->

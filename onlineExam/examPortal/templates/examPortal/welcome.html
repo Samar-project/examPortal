@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'examPortal/css/welcome.css' %}">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body onload="toggleForm()">
+    <h1>Welcome to the Online Exam System</h1>
+    <form method="post" action="{% url 'welcome' %}">
+        {% csrf_token %}
+        <input type="radio" name="logintype" id="signin" value="signin" onclick="toggleForm()" checked> Sign in
+        <input type="radio" name="logintype" id="register" value="register" onclick="toggleForm()"> Register <br>
+
+        <div id="signInFields">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required><br>
+        </div>
+        
+        <div id="registrationFields" class="hidden regFields">
+            <label for="usernm">Username:</label>
+            <input type="text" name="usernm" id="usernm" required><br>    
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required><br>
+            <label for="mobNo">Phone Number:</label>
+            <input type="number" name="mobNo" id="mobNo" required><br>
+            <label for="RegPassword">Password:</label>
+            <input type="Password" name="RegPassword" id="RegPassword" required><br>
+            <label for="RegCpassword">Confirm Password:</label>
+            <input type="password" name="RegCpassword" id="RegCpassword" required><br>
+            <label for="class">Class:</label>
+            <input type="text" name="class1" id="class1"><br>
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age"><br>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+    
+    {% if error_message %}
+        <p style="color:red;">{{ error_message }}</p>
+    {% endif %}
+
+    <script>
+        function toggleForm() {
+            var logintype = document.querySelector('input[name="logintype"]:checked').value;
+            var signin = document.getElementById('signin').checked;
+            var register = document.getElementById('register').checked;
+
+            var signInFields = document.getElementById('signInFields');
+            var registrationFields = document.getElementById('registrationFields');
+
+            if (register) {
+                registrationFields.classList.remove('hidden');
+                signInFields.classList.add('hidden');
+                // Disable Sign In fields to avoid submission
+                document.getElementById('username').disabled = true;
+                document.getElementById('password').disabled = true;
+                // Enable Registration fields
+                document.getElementById('usernm').disabled = false;
+                document.getElementById('name').disabled = false;
+                document.getElementById('email').disabled = false;
+                document.getElementById('mobNo').disabled = false;
+                document.getElementById('RegPassword').disabled = false;
+                document.getElementById('RegCpassword').disabled = false;
+                document.getElementById('class1').disabled = false;
+                document.getElementById('age').disabled = false;
+            } 
+            else {
+                registrationFields.classList.add('hidden');
+                signInFields.classList.remove('hidden');
+                // Disable Registration fields to avoid submission
+                document.getElementById('usernm').disabled = true;
+                document.getElementById('name').disabled = true;
+                document.getElementById('email').disabled = true;
+                document.getElementById('mobNo').disabled = true;
+                document.getElementById('RegPassword').disabled = true;
+                document.getElementById('RegCpassword').disabled = true;
+                document.getElementById('class1').disabled = true;
+                document.getElementById('age').disabled = true;
+                // Enable Sign In fields
+                document.getElementById('username').disabled = false;
+                document.getElementById('password').disabled = false;
+            }
+        }
+
+        // Initialize the form visibility based on the selected radio button
+        // = function() {
+             window.onload=toggleForm; // Set initial state based on the default selection
+        // };
+    </script>
+</body>
+</html>

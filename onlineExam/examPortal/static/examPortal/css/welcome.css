@@ -1,0 +1,118 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin:2px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], 
+input[type="password"], 
+input[type="email"],
+input[type="number"] {
+    width: calc(100% - 100px);
+    padding: 4px;
+    margin: 6px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Button Styles */
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #317d31;
+}
+
+/* Toggle Form Section */
+.hidden {
+    display: none;
+}
+.regFields input
+{
+    width: calc(100% - 135px);
+    padding: 4px;
+    margin: 6px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+     /* display: flex; */
+}
+
+.regFields{
+   margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+/* Mobile Responsive Styles */
+@media (max-width: 600px) {
+    form {
+        padding: 20px;
+    }
+
+    input[type="text"], 
+    input[type="password"], 
+    input[type="email"],
+    input[type="number"] {
+        width: calc(100% - 135px);
+        margin: 6px;
+
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}

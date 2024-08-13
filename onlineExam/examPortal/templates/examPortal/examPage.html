@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Take Exam</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'examPortal/css/examPage.css' %}">
+   
+    <script>
+        // JavaScript to handle the timer
+        var endTime = new Date("{{ exam.end_time|date:'Y/m/d H:i:s' }}").getTime();
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = endTime - now;
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "EXPIRED";
+                document.getElementById("examForm").submit();
+            }
+        }, 1000);
+    </script>
+</head>
+<body>
+    <form action="{% url 'welcome' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="logout" value="logout" class="btn btn-primary">Sign Out</button>
+    </form>
+    
+    {% if error_user_or_completed %}
+    <h2 style="color:rgba(255, 0, 0, 0.608);" >{{error_user_or_completed}}
+         <p style="color:red;">Contact Admin</p></h2>
+   
+    {% else %}
+    <h1>{{ exam.subject.name }} Exam</h1>
+    <div id="timer"></div>
+    <form id="examForm" method="post">
+        {% csrf_token %}
+        {% for question in questions %}
+            <div>
+                <p>{{ forloop.counter }}. {{ question.text }}</p>
+                <label><input type="radio" name="question{{ question.id }}" value="A"> {{ question.option1 }}</label><br>
+                <label><input type="radio" name="question{{ question.id }}" value="B"> {{ question.option2 }}</label><br>
+                <label><input type="radio" name="question{{ question.id }}" value="C"> {{ question.option3 }}</label><br>
+                <label><input type="radio" name="question{{ question.id }}" value="D"> {{ question.option4 }}</label><br>
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+
+    {% endif %}
+
+</body>
+</html>
