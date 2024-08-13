@@ -12,7 +12,7 @@ This is project *examPortal* is an online exam management system built with Djan
 
 1. **Clone the Repository**
    ```bash
-   git clone [https://github.com/Samar-project/examPortal](https://github.com/Samar-project/examPortal.git)
+   git clone https://github.com/Samar-project/examPortal.git
    cd examPortal
    python manage.py flush --for deletinng existing database data.
 
@@ -42,31 +42,31 @@ Log in to the admin panel using the superuser credentials.
 Manage users, subjects, and exams from the admin dashboard.
 Project Structure
 
-online-exam-system/
+onlineExam/                                                                                                                                                                                            
 │
-├── examPortal/
-│   ├── migrations/          # Database migrations
-│   ├── static/              # Static files (CSS, JavaScript, Images)
-|   |    ├── examPortal/
-|   |        ├── css/
+├── examPortal/                
+│   ├── migrations/          # Database migrations                                                                                                                                        
+│   ├── static/              # Static files (CSS, JavaScript, Images)                                                                                                
+|   |    ├── examPortal/                                                                                                                                                                
+|   |          ├── css/                                                                                                                                                                
 │   ├── templates/           # HTML templates
-|   |    ├── admin/          # Admin related HTML templates
-|   |    ├── examPortal/     # examPortal related HTML templates
-│   ├── admin.py             # Admin configurations
-│   ├── apps.py              # Application configurations
-│   ├── models.py            # Models for the database
+|   |    ├── admin/          # Admin related HTML templates                                                                                                        
+|   |    ├── examPortal/     # examPortal related HTML templates                                                                                                        
+│   ├── admin.py             # Admin configurations                                                                                                                        
+│   ├── apps.py              # Application configurations                                                                                                                
+│   ├── models.py            # Models for the database                                                                                                                        
 │   ├── tests.py             # Test cases
-│   ├── urls.py              # URL routing
-│   └── views.py             # View functions
-├── onlineExam/
-│   ├── __init__.py          
-│   ├── asgi.py            
-│   ├── settings.py          # All the settings and Configuration
-│   ├── urls.py              # URL routing
-│   └── wsgi.py             
-│
-├── manage.py                # Django management script
-└── README.md                # Project documentation
+│   ├── urls.py              # URL routing                                                                                                                                
+│   └── views.py             # View functions                                                                                                                
+├── onlineExam/                                                                                                                                        
+│   ├── __init__.py                                                                                                                                  
+│   ├── asgi.py                                                                                                                                            
+│   ├── settings.py          # All the settings and Configuration                                                                                                                
+│   ├── urls.py              # URL routing                                                                                                                                                        
+│   └── wsgi.py                                                                                                                                                                     
+│                                                                                                                                                        
+├── manage.py                # Django management script                                                                                                                        
+└── README.md                # Project documentation                                                                                                                                        
 
 
 Contributing
